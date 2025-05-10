@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "VoiceBot Generator",
+  "version": "1.0.0",
+  "description": "Generate voice chatbots for your website in minutes",
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  },
+  "permissions": [
+    "activeTab",
+    "storage",
+    "tabs"
+  ],
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["contentScript.js"]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+}
