@@ -85,7 +85,6 @@ function App() {
 }
 
 // The rest of your components remain the same as before...
-}
 
 function Landing() {
   return (
