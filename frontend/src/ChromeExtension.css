@@ -1,0 +1,161 @@
+/* Chrome Extension specific styles */
+
+/* Set fixed dimensions for the extension popup */
+body.extension-popup {
+  width: 400px;
+  height: 600px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Scrollable content area */
+.extension-content {
+  height: calc(100% - 60px); /* Adjust for header */
+  overflow-y: auto;
+  padding: 16px;
+}
+
+/* Extension header */
+.extension-header {
+  background: linear-gradient(120deg, #4f46e5 0%, #7c3aed 100%);
+  color: white;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.extension-header h1 {
+  font-size: 18px;
+  margin: 0;
+  font-weight: 600;
+}
+
+/* Extension Footer */
+.extension-footer {
+  padding: 8px 16px;
+  background-color: #f9fafb;
+  border-top: 1px solid #e5e7eb;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* URL Display */
+.url-display {
+  background-color: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  padding: 8px 12px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  color: #4b5563;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: flex;
+  align-items: center;
+}
+
+.url-display svg {
+  margin-right: 8px;
+  color: #6b7280;
+}
+
+/* Action Buttons */
+.extension-btn {
+  width: 100%;
+  padding: 10px 16px;
+  background-color: #4f46e5;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.extension-btn svg {
+  margin-right: 8px;
+}
+
+.extension-btn:hover {
+  background-color: #4338ca;
+}
+
+.extension-btn.secondary {
+  background-color: white;
+  color: #4f46e5;
+  border: 1px solid #e5e7eb;
+}
+
+.extension-btn.secondary:hover {
+  background-color: #f9fafb;
+}
+
+/* Panels within extension */
+.extension-panel {
+  background-color: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.extension-panel h2 {
+  font-size: 16px;
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+/* Loading state */
+.extension-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #6b7280;
+}
+
+.extension-loading .loader {
+  margin-bottom: 16px;
+}
+
+/* Message banners */
+.extension-message {
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+.extension-message.info {
+  background-color: #eff6ff;
+  border: 1px solid #dbeafe;
+  color: #1e40af;
+}
+
+.extension-message.success {
+  background-color: #ecfdf5;
+  border: 1px solid #d1fae5;
+  color: #065f46;
+}
+
+.extension-message.warning {
+  background-color: #fffbeb;
+  border: 1px solid #fef3c7;
+  color: #92400e;
+}
+
+.extension-message.error {
+  background-color: #fef2f2;
+  border: 1px solid #fee2e2;
+  color: #b91c1c;
+}
