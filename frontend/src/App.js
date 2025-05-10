@@ -7,6 +7,7 @@ import { createClient } from '@supabase/supabase-js';
 import axios from 'axios';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import ChromeExtension from './ChromeExtension';
 import './App.css';
 
 // Load environment variables
@@ -18,11 +19,19 @@ const STRIPE_PUBLIC_KEY = process.env.REACT_APP_STRIPE_PUBLIC_KEY || '';
 // Initialize Supabase client
 const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
+// Check if running in Chrome extension
+const isExtension = window.chrome && chrome.runtime && chrome.runtime.id;
+
 function App() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    // Check if we're in extension context - add body class if yes
+    if (isExtension) {
+      document.body.classList.add('extension-popup');
+    }
+    
     // Check active session
     const session = supabase.auth.getSession();
     
@@ -49,6 +58,12 @@ function App() {
     </div>;
   }
 
+  // If this is a Chrome extension, render the extension UI
+  if (isExtension) {
+    return <ChromeExtension />;
+  }
+
+  // Otherwise render the full web app
   return (
     <Router>
       <div className="min-h-screen bg-gray-100">
@@ -67,6 +82,9 @@ function App() {
       </div>
     </Router>
   );
+}
+
+// The rest of your components remain the same as before...
 }
 
 function Landing() {
